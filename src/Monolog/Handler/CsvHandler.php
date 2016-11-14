@@ -30,9 +30,20 @@ class CsvHandler extends StreamHandler
     /**
      * @inheritdoc
      */
-    protected function streamWrite($resource, $record)
+    protected function streamWrite($resource, array $record)
     {
-        return fputcsv($resource, (array)$record['formatted'], static::DELIMITER, static::ENCLOSURE, static::ESCAPE_CHAR);
+        if (is_array($record['formatted'])) {
+            foreach ($record['formatted'] as $key => $info) {
+                if (is_array($info)) {
+                    $record['formatted'][$key] = json_encode($info);
+                }
+            }
+        }
+        $formated = (array) $record['formatted'];
+        if (version_compare(PHP_VERSION, '5.5.4', '>=')) {
+            return fputcsv($resource, $formated, static::DELIMITER, static::ENCLOSURE, static::ESCAPE_CHAR);
+        }
+        return fputcsv($resource, $formated, static::DELIMITER, static::ENCLOSURE);
     }
 
     /**

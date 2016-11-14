@@ -1,8 +1,6 @@
 # CsvHandler for Monolog - Logging for PHP [![Build Status](https://img.shields.io/travis/femtopixel/monolog-csvhandler.svg)](https://travis-ci.org/femtopixel/monolog-csvhandler)
 
-[![Total Downloads](https://img.shields.io/packagist/dt/femtopixel/monolog-csvhandler.svg)](https://packagist.org/packages/femtopixel/monolog-csvhandler)
 [![Latest Stable Version](https://img.shields.io/packagist/v/femtopixel/monolog-csvhandler.svg)](https://packagist.org/packages/femtopixel/monolog-csvhandler)
-[![Reference Status](https://www.versioneye.com/php/monolog:monolog/reference_badge.svg)](https://www.versioneye.com/php/monolog:monolog/references)
 
 CsvHandler for Monolog sends your logs to CSV files. For more information on Monolog, see http://github.com/Seldaek/monolog
 
@@ -24,7 +22,7 @@ use FemtoPixel\Monolog\Handler\CsvHandler;
 
 // create a log channel
 $log = new Logger('name');
-$log->pushHandler(new SCsvHandler('path/to/your.csv', Logger::WARNING));
+$log->pushHandler(new CsvHandler('path/to/your.csv', Logger::WARNING));
 
 // add records to the log
 $log->addWarning('Foo');
