@@ -9,16 +9,13 @@
  * file that was distributed with this source code.
  */
 
-namespace Femtopixel\Monolog\Handler;
+namespace FemtoPixel\Monolog\Handler;
 
-use Monolog\TestCase;
+use FemtoPixel\Monolog\TestCase;
 use Monolog\Logger;
 
 class CsvHandlerTest extends TestCase
 {
-    /**
-     * @covers CsvHandler::write
-     */
     public function testWrite()
     {
         $handle = fopen('php://memory', 'a+');
@@ -31,9 +28,6 @@ class CsvHandlerTest extends TestCase
         $this->assertEquals("test\ntest2\ntest3\n", fread($handle, 100));
     }
 
-    /**
-     * @covers CsvHandler::write
-     */
     public function testWriteWithNormalizer()
     {
         $handle = fopen('php://memory', 'a+');
