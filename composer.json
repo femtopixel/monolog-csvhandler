@@ -1,0 +1,33 @@
+{
+    "name": "femtopixel/monolog-csvhandler",
+    "description": "Sends your logs to csv files",
+    "keywords": ["log", "csv", "logging", "psr-3"],
+    "homepage": "http://github.com/femtopixel/monolog-csvhandler",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Jay MOULIN",
+            "email": "jaymoulin@gmail.com",
+            "homepage": "http://github.com/jaymoulin"
+        }
+    ],
+    "require": {
+        "php": ">=5.3.0",
+        "monolog/monolog": "^1.21.0",
+        "psr/log": "~1.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "~4.5 || ^5.0"
+    },
+    "_": "phpunit/phpunit-mock-objects required in 2.3.0 due to https://github.com/sebastianbergmann/phpunit-mock-objects/issues/223 - needs hhvm 3.8+ on travis",
+    "autoload": {
+        "psr-4": {"FemtoPixel\\Monolog\\": "src/Monolog"}
+    },
+    "autoload-dev": {
+        "psr-4": {"FemtoPixel\\Monolog\\": "tests/Monolog"}
+    },
+    "scripts": {
+        "phpunit": "phpunit"
+    }
+}

@@ -1,0 +1,51 @@
+# CsvHandler for Monolog - Logging for PHP [![Build Status](https://img.shields.io/travis/femtopixel/monolog-csvhandler.svg)](https://travis-ci.org/femtopixel/monolog-csvhandler)
+
+[![Total Downloads](https://img.shields.io/packagist/dt/femtopixel/monolog-csvhandler.svg)](https://packagist.org/packages/femtopixel/monolog-csvhandler)
+[![Latest Stable Version](https://img.shields.io/packagist/v/femtopixel/monolog-csvhandler.svg)](https://packagist.org/packages/femtopixel/monolog-csvhandler)
+[![Reference Status](https://www.versioneye.com/php/monolog:monolog/reference_badge.svg)](https://www.versioneye.com/php/monolog:monolog/references)
+
+CsvHandler for Monolog sends your logs to CSV files. For more information on Monolog, see http://github.com/Seldaek/monolog
+
+## Installation
+
+Install the latest version with
+
+```bash
+$ composer require femtopixel/monolog-csvhandler
+```
+
+## Basic Usage
+
+```php
+<?php
+
+use Monolog\Logger;
+use FemtoPixel\Monolog\Handler\CsvHandler;
+
+// create a log channel
+$log = new Logger('name');
+$log->pushHandler(new SCsvHandler('path/to/your.csv', Logger::WARNING));
+
+// add records to the log
+$log->addWarning('Foo');
+$log->addError('Bar');
+```
+
+## About
+
+### Requirements
+
+- Monolog works with PHP 5.3 or above, and is also tested to work with HHVM.
+
+### Submitting bugs and feature requests
+
+Bugs and feature request are tracked on [GitHub](https://github.com/fmetopixel/monolog-csvhandler/issues)
+
+### Author
+
+Jay MOULIN <jaymoulin@gmail.com>
+See also the list of [contributors](https://github.com/femtopixel/monolog-csvhandler/contributors) which participated in this handler.
+
+### License
+
+Monolog is licensed under the MIT License and so for this CsvHandler - see the `LICENSE` file for details
