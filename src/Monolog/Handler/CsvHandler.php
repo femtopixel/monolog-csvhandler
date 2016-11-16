@@ -39,8 +39,8 @@ class CsvHandler extends StreamHandler
                 }
             }
         }
-        $formated = (array) $record['formatted'];
-        if (version_compare(PHP_VERSION, '5.5.4', '>=')) {
+        $formated = (array)$record['formatted'];
+        if (version_compare(PHP_VERSION, '5.5.4', '>=') && !defined('HHVM_VERSION')) {
             return fputcsv($resource, $formated, static::DELIMITER, static::ENCLOSURE, static::ESCAPE_CHAR);
         }
         return fputcsv($resource, $formated, static::DELIMITER, static::ENCLOSURE);
