@@ -6,6 +6,8 @@
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/femtopixel/monolog-csvhandler/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/femtopixel/monolog-csvhandler/?branch=master)
 [![Code Coverage](https://scrutinizer-ci.com/g/femtopixel/monolog-csvhandler/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/femtopixel/monolog-csvhandler/?branch=master)
 [![License](https://poser.pugx.org/femtopixel/monolog-csvhandler/license)](https://packagist.org/packages/femtopixel/monolog-csvhandler)
+[![Bitcoin donation](https://github.com/jaymoulin/jaymoulin.github.io/raw/master/btc.png "Bitcoin donation")](https://m.freewallet.org/id/374ad82e/btc)
+[![Litecoin donation](https://github.com/jaymoulin/jaymoulin.github.io/raw/master/ltc.png "Litecoin donation")](https://m.freewallet.org/id/374ad82e/ltc)
 
 CsvHandler for Monolog sends your logs to CSV files. For more information on Monolog, see http://github.com/Seldaek/monolog
 
