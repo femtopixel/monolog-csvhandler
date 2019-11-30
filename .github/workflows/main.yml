@@ -1,0 +1,49 @@
+name: CI
+
+on:
+  push:
+    tags:
+      - '*'
+
+jobs:
+  test:
+    strategy:
+      matrix:
+        php-versions: ['5.6', '7.0', '7.1', '7.2', '7.3', '7.4']
+    runs-on: ubuntu-latest
+    name: PHP ${{ matrix.php-versions }} Tests
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v1
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v1
+        with:
+          php-version: ${{ matrix.php-versions }}
+          extension-csv: bcmath, mbstring
+          coverage: xdebug
+
+      - name: Check PHP Version
+        run: php -v
+
+      - name: Check Composer Version
+        run: composer -V
+
+      - name: Install Dependencies
+        run: composer install --prefer-dist
+
+      - name: Tests
+        run: composer phpunit
+
+      - name: Building artifacts
+        run: |
+          composer phpcs || true
+          composer phploc || true
+          composer phpcpd || true
+          composer phpmd || true
+
+      - name: Archive build artifacts
+        uses: actions/upload-artifact@v1
+        with:
+          name: build
+          path: build
