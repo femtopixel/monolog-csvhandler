@@ -1,18 +1,10 @@
 <?php
 
-/*
- * This file is part of the Monolog package.
- *
- * (c) Jordi Boggiano <j.boggiano@seld.be>
- *
- * For the full copyright and license information, please view the LICENSE
- * file that was distributed with this source code.
- */
-
 namespace FemtoPixel\Monolog\Handler;
 
 use FemtoPixel\Monolog\TestCase;
 use Monolog\Logger;
+use \Monolog\Formatter\NormalizerFormatter;
 
 class CsvHandlerTest extends TestCase
 {
@@ -32,18 +24,10 @@ class CsvHandlerTest extends TestCase
     {
         $handle = fopen('php://memory', 'a+');
         $handler = new CsvHandler($handle);
-        $handler->setFormatter($this->getNormalizeFormatter());
+        $handler->setFormatter(new NormalizerFormatter);
         $handler->handle($this->getRecord(Logger::WARNING, 'doesn\'t fail'));
         fseek($handle, 0);
-        $regexp = "~\\A'doesn''t fail',\\[\\],300,WARNING,test,'[0-9]{4}\\-[0-9]{2}+\\-[0-9]{2} [0-9]{2}:[0-9]{2}:[0-9]{2}',\\[\\]\n\\Z~";
+        $regexp = "~\\A'doesn''t fail',\\[\\],300,WARNING,test,[0-9]{4}\\-[0-9]{2}\\-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}\\+[0-9]{2}:[0-9]{2},\\[\\]\n\\Z~";
         $this->assertSame(1, preg_match($regexp, fread($handle, 100)));
-    }
-
-    /**
-     * @return \Monolog\Formatter\NormalizerFormatter
-     */
-    protected function getNormalizeFormatter()
-    {
-        return $this->getMock('Monolog\\Formatter\\NormalizerFormatter', null);
     }
 }

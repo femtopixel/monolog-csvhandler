@@ -1,16 +1,9 @@
 <?php
 
-/*
- * This file is part of the Monolog package.
- *
- * (c) Jordi Boggiano <j.boggiano@seld.be>
- *
- * For the full copyright and license information, please view the LICENSE
- * file that was distributed with this source code.
- */
-
 namespace FemtoPixel\Monolog\Handler;
 
+use Monolog\Formatter\FormatterInterface;
+use Monolog\Formatter\LineFormatter;
 use Monolog\Formatter\NormalizerFormatter;
 use Monolog\Handler\StreamHandler;
 
@@ -19,7 +12,7 @@ use Monolog\Handler\StreamHandler;
  *
  * Can be used to store big loads to physical files and import them later into another system that can handle CSV
  *
- * @author Jay MOULIN <jaymoulin@gmail.com>
+ * @author Jay MOULIN <jay@femtopixel.com>
  */
 class CsvHandler extends StreamHandler
 {
@@ -30,7 +23,7 @@ class CsvHandler extends StreamHandler
     /**
      * @inheritdoc
      */
-    protected function streamWrite($resource, array $record)
+    protected function streamWrite($stream, array $record): void
     {
         if (is_array($record['formatted'])) {
             foreach ($record['formatted'] as $key => $info) {
@@ -39,17 +32,20 @@ class CsvHandler extends StreamHandler
                 }
             }
         }
-        $formated = (array)$record['formatted'];
+        $formatted = (array)$record['formatted'];
         if (version_compare(PHP_VERSION, '5.5.4', '>=') && !defined('HHVM_VERSION')) {
-            return fputcsv($resource, $formated, static::DELIMITER, static::ENCLOSURE, static::ESCAPE_CHAR);
+            fputcsv($stream, $formatted, static::DELIMITER, static::ENCLOSURE, static::ESCAPE_CHAR);
+            return;
         }
-        return fputcsv($resource, $formated, static::DELIMITER, static::ENCLOSURE);
+        fputcsv($stream, $formatted, static::DELIMITER, static::ENCLOSURE);
     }
 
     /**
-     * @inheritdoc
+     * Gets the default formatter.
+     *
+     * Overwrite this if the LineFormatter is not a good default for your handler.
      */
-    protected function getDefaultFormatter()
+    protected function getDefaultFormatter(): FormatterInterface
     {
         return new NormalizerFormatter();
     }
