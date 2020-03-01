@@ -7,10 +7,9 @@
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/femtopixel/monolog-csvhandler/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/femtopixel/monolog-csvhandler/?branch=master)
 [![Code Coverage](https://scrutinizer-ci.com/g/femtopixel/monolog-csvhandler/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/femtopixel/monolog-csvhandler/?branch=master)
 [![License](https://poser.pugx.org/femtopixel/monolog-csvhandler/license)](https://packagist.org/packages/femtopixel/monolog-csvhandler)
-[![Watch Ads](https://github.com/jaymoulin/jaymoulin.github.io/raw/master/utip.png "Watch Ads")](https://utip.io/femtopixel)
 [![PayPal donation](https://github.com/jaymoulin/jaymoulin.github.io/raw/master/ppl.png "PayPal donation")](https://www.paypal.me/jaymoulin)
 [![Buy me a coffee](https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png "Buy me a coffee")](https://www.buymeacoffee.com/3Yu8ajd7W)
-[![Become a Patron](https://badgen.net/badge/become/a%20patron/F96854 "Become a Patron")](https://patreon.com/femtopixel)
+[![Become a Patron](https://badgen.net/badge/become/a%20patron/F96854 "Become a Patron")](https://patreon.com/jaymoulin)
 
 CsvHandler for Monolog sends your logs to CSV files. For more information on Monolog, see http://github.com/Seldaek/monolog
 
