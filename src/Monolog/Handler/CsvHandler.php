@@ -12,7 +12,6 @@ use Monolog\Handler\StreamHandler;
  *
  * Can be used to store big loads to physical files and import them later into another system that can handle CSV
  *
- * @author Jay MOULIN <jay@femtopixel.com>
  */
 class CsvHandler extends StreamHandler
 {

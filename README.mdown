@@ -54,7 +54,7 @@ Bugs and feature request are tracked on [GitHub](https://github.com/fmetopixel/m
 
 ### Author
 
-Jay MOULIN <jay@femtopixel.com>
+Jay MOULIN
 See also the list of [contributors](https://github.com/femtopixel/monolog-csvhandler/contributors) which participated in this handler.
 
 ### License
